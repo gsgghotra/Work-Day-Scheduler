@@ -59,12 +59,13 @@
 
       //Start and finish hours
       let startDayTime = 9;
-      let finishDayTime = 5;
+      let finishDayTime = 17;
+      let totalWorkHours = finishDayTime - startDayTime;
 
-      for(var i = 0; i < 8; i++){
+      for(var i = 0; i < totalWorkHours; i++){
         var list = document.createElement('li');
         var hourList = document.getElementById('hourList');
-        list.innerText = ++startDayTime
+        list.innerText = ++startDayTime;
         hourList.append(list);
 
       }
