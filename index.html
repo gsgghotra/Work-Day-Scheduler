@@ -39,9 +39,16 @@
       var timeNow = dayjs();
       var formattedTime = dayjs(timeNow).format('dddd MMMM, D') 
 
-      //Add 'th' after date
-      
-      console.log(formattedTime);
+      //Add suffix 'th' after date
+      var day =  dayjs(timeNow).format('D');
+      var suffix;
+
+      if(day === '1' || day === '21' || day === '31'){suffix = 'st'}
+      else if(day === '2' || day === '22'){suffix = 'nd'}
+      else if(day === '3' || day === '23'){suffix = 'rd'}
+      else {suffix = 'th'}
+
+      console.log(day + suffix);
     </script>
 
   </body>
