@@ -32,6 +32,7 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
+      <ul id="hourList"></ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
@@ -54,6 +55,19 @@
     <script>
       dateElement = document.getElementById('currentDay');
       dateElement.innerText = formattedDate+suffix;
+      
+
+      //Start and finish hours
+      let startDayTime = 9;
+      let finishDayTime = 5;
+
+      for(var i = 0; i < 8; i++){
+        var list = document.createElement('li');
+        var hourList = document.getElementById('hourList');
+        list.innerText = ++startDayTime
+        hourList.append(list);
+
+      }
     </script>
   </body>
 </html>
