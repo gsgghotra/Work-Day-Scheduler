@@ -71,4 +71,10 @@ function slot(hourId, slotColor){
     let saveIcon = $('<i></i>');
     saveIcon.addClass("fa-solid fa-floppy-disk fa-xl");
     buttonSection.append(saveIcon);
+
+
+    //Event listener on click
+    $(hourId).on( "click", function() {
+        console.log( $( this ).text() );
+      });
 }
