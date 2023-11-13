@@ -53,20 +53,31 @@
     </script>
 
     <script>
-      dateElement = document.getElementById('currentDay');
+      let dateElement = document.getElementById('currentDay');
+      let hourList = document.getElementById('hourList');
       dateElement.innerText = formattedDate+suffix;
       
 
       //Start and finish hours
       let startDayTime = 9;
       let finishDayTime = 17;
+      
       let totalWorkHours = finishDayTime - startDayTime;
 
-      for(var i = 0; i < totalWorkHours; i++){
+      //dayjs().hour() // gets current hour
+      let eachHour = dayjs().hour(startDayTime) // increase hour by 1
+      console.log() 
+
+      for(var i = 0; i < totalWorkHours + 1; i++){
+        //Create a list for each hour
         var list = document.createElement('li');
-        var hourList = document.getElementById('hourList');
-        list.innerText = ++startDayTime;
+
+        eachHour = dayjs().hour(startDayTime++) // increase hour by 1
+        list.innerText = eachHour.format('hh A'); // Format into 12H format
+        
         list.classList.add('row');
+
+        //append into hourList
         hourList.append(list);
 
       }
