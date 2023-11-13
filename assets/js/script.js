@@ -25,9 +25,31 @@ let totalWorkHours = finishDayTime - startDayTime;
 //dayjs().hour() // gets current hour
 let eachHour = dayjs().hour(startDayTime);
 
+//Iterate through each hour and append it to the DOM
 for(var i = 0; i < totalWorkHours + 1; i++){
     //Create a list for each hour
-    eachHour = dayjs().hour(startDayTime++) // increase hour by 1
-    $("#hourList").append(`<li>${eachHour.format('hh A')}</li>`);  // Format into 12H format
-    $("li").addClass('row timeblock hour');
+    eachHour = dayjs().hour(startDayTime++); // increase hour by 1
+
+    //Create a unique id using hour
+    let hourId = `#${eachHour.format('h')}`;
+    //Add id to differentiate each row
+    let eachRow = `<div id='${eachHour.format('h')}'></div>`; 
+    $(".container").append(eachRow);   
+    $(hourId).addClass('row hour');
+
+    //coloumn for time
+    let timeSection = $('<div></div>');
+    timeSection.addClass('col');
+    timeSection.text(eachHour.format('hh A')); // Format into 12H format
+    $(hourId).append(timeSection);
+
+    //Description Section
+    let descriptionSection = $('<textarea></textarea>');
+    descriptionSection.addClass('col-10');
+    $(hourId).append(descriptionSection)
+
+    //Save Button
+    let buttonSection = $('<div></div>');
+    buttonSection.addClass('col');
+    $(hourId).append(buttonSection)
 }
