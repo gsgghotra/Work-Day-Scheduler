@@ -38,9 +38,20 @@ for(var i = 9; i < finishDayTime + 1; i++){
     $(".container").append(eachRow);   
     $(hourId).addClass('row');
 
+    
     //Add colors to hourly slots based on current time
-     let slotColor = slotColoring(i);
+    let slotColor = slotColoring(i);
+    slot( hourId, slotColor);
+}
 
+function slotColoring(index){
+    //If current hour
+    if (index == currentHour) { return "present"}
+    if (index < currentHour) { return "past"}
+    if (index > currentHour) {return "future";}
+}
+
+function slot(hourId, slotColor){
     //coloumn for time
     let timeSection = $('<div></div>');
     timeSection.addClass('col hour text-end pt-3');
@@ -56,11 +67,8 @@ for(var i = 9; i < finishDayTime + 1; i++){
     let buttonSection = $('<div></div>');
     buttonSection.addClass('col saveBtn');
     $(hourId).append(buttonSection);
-}
 
-function slotColoring(index){
-    //If current hour
-    if (index == currentHour) { return "present"}
-    if (index < currentHour) { return "past"}
-    if (index > currentHour) {return "future";}
+    let saveIcon = $('<i></i>');
+    saveIcon.addClass("fa-solid fa-floppy-disk fa-xl");
+    buttonSection.append(saveIcon);
 }
