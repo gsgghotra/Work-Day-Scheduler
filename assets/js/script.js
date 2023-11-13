@@ -14,7 +14,7 @@ else {suffix = 'th'}
 //console.log(day + suffix);
 
 // DOM manuplation
-$('#hourList').addClass("description");
+$('.container').addClass("description");
 $('#currentDay').text(formattedDate+suffix);
 
 //Start and finish hours
@@ -35,11 +35,11 @@ for(var i = 0; i < totalWorkHours + 1; i++){
     //Add id to differentiate each row
     let eachRow = `<div id='${eachHour.format('h')}'></div>`; 
     $(".container").append(eachRow);   
-    $(hourId).addClass('row hour');
+    $(hourId).addClass('row timeblock');
 
     //coloumn for time
     let timeSection = $('<div></div>');
-    timeSection.addClass('col');
+    timeSection.addClass('col hour text-end pt-3');
     timeSection.text(eachHour.format('hh A')); // Format into 12H format
     $(hourId).append(timeSection);
 
@@ -50,6 +50,6 @@ for(var i = 0; i < totalWorkHours + 1; i++){
 
     //Save Button
     let buttonSection = $('<div></div>');
-    buttonSection.addClass('col');
+    buttonSection.addClass('col saveBtn');
     $(hourId).append(buttonSection)
 }
