@@ -59,7 +59,7 @@ function slot(hourId, slotColor){
     $(hourId).append(timeSection);
 
     //Description Section
-    let descriptionSection = $('<textarea></textarea>');
+    let descriptionSection = $(`<textarea id="text-${eachHour.format('H')}"></textarea>`);
     descriptionSection.addClass('col-10 '+ slotColor);
     $(hourId).append(descriptionSection)
 
@@ -74,7 +74,13 @@ function slot(hourId, slotColor){
 
 
     //Event listener on click
-    $(hourId).on( "click", function() {
-        console.log( $( this ).text() );
+    $(hourId).on( "click", function(event) {
+        //Grab id of the text
+        let divId = $(this).closest('div').attr('id'); //Parent ID
+        let textId = `#text-${divId}`;
+
+        //Grab the text
+        console.log($(textId).val())
+
       });
 }
