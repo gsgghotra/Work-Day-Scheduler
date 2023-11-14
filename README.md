@@ -1,6 +1,6 @@
 # Work-Day-Scheduler
 A simple calendar application that allows a user to save events for each hour of the day. The information will be stored in local storage for the day. The slots are coloured to indicate past, present and future slots.
-- **Visit** the application at: 
+- **Visit** the application at: https://gsgghotra.github.io/Work-Day-Scheduler/
 
 ## Table of Contents
 

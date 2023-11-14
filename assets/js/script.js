@@ -15,7 +15,7 @@ if (locallyStored.size){
     storedData = locallyStored;
 }
 
-console.log(storedData);
+//console.log(storedData);
 
 //get the Date only
 var day =  dayjs(timeNow).format('D');
