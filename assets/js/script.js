@@ -2,6 +2,21 @@
 var timeNow = dayjs();
 var formattedDate = dayjs(timeNow).format('dddd, MMMM D');
 
+let locallyStored = localStorage.getItem("workDay");
+
+//variable for storage
+let storedData = new Map;
+
+//Converting stored array into map
+locallyStored = new Map(JSON.parse(locallyStored));
+
+//check if data already exists in localstorage, update the variable
+if (locallyStored.size){
+    storedData = locallyStored;
+}
+
+console.log(storedData);
+
 //get the Date only
 var day =  dayjs(timeNow).format('D');
 var currentHour =  dayjs(timeNow).format('H');
@@ -41,9 +56,10 @@ for(var i = 9; i < finishDayTime + 1; i++){
     
     //Add colors to hourly slots based on current time
     let slotColor = slotColoring(i);
-    slot( hourId, slotColor);
+    slotManager( hourId, slotColor);
 }
 
+//Colouring the slots
 function slotColoring(index){
     //If current hour
     if (index == currentHour) { return "present"}
@@ -51,7 +67,8 @@ function slotColoring(index){
     if (index > currentHour) {return "future";}
 }
 
-function slot(hourId, slotColor){
+//Managing slots
+function slotManager(hourId, slotColor){
     //coloumn for time
     let timeSection = $('<div></div>');
     timeSection.addClass('col hour text-end pt-3');
@@ -61,10 +78,10 @@ function slot(hourId, slotColor){
     //Description Section
     let descriptionSection = $(`<textarea id="text-${eachHour.format('H')}"></textarea>`);
     descriptionSection.addClass('col-10 '+ slotColor);
-    $(hourId).append(descriptionSection)
+    $(hourId).append(descriptionSection);
 
     //Save Button
-    let buttonSection = $('<div></div>');
+    let buttonSection = $(`<button></button>`);
     buttonSection.addClass('col saveBtn');
     $(hourId).append(buttonSection);
 
@@ -75,12 +92,23 @@ function slot(hourId, slotColor){
 
     //Event listener on click
     $(hourId).on( "click", function(event) {
-        //Grab id of the text
-        let divId = $(this).closest('div').attr('id'); //Parent ID
-        let textId = `#text-${divId}`;
+        //eventHour =  $( this ).text();
+        //ONLY RESPONSE TO BUTTON CLICK OR THE SAVE ICON
+        if (event.target.nodeName === "BUTTON" || event.target.nodeName === "I" ){
+            //Grab id of the text
+            let divId = $(this).closest('div').attr('id'); //Parent ID
+            let textId = `#text-${divId}`;
 
-        //Grab the text
-        console.log($(textId).val())
+            //console.log(event.target.nodeName);
+            if ($(textId).val()){ //Only response if value isn't empty
 
-      });
+                //Using map to store data. Using hour as key
+                storedData.set(divId, $(textId).val());
+
+                //To use JSON stringify, create an array using entries method
+                let stringifyData = JSON.stringify(Array.from(storedData.entries()));                
+                localStorage.setItem("workDay", stringifyData);
+            }   
+        }
+    });
 }
