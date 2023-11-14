@@ -9,7 +9,7 @@ A simple calendar application that allows a user to save events for each hour of
 4. [Contact Information](#contact-information)
 
 ## Introduction
-A simple calendar application that allows a user to save events for each hour of the day. The functions of the app are listed below:
+A simple calendar application that allows a user to save events for each hour of the day. The functionality of the app is listed below:
 
 * Displays the current day at the top of the calender when a user opens the planner.
 
@@ -26,19 +26,17 @@ A simple calendar application that allows a user to save events for each hour of
 - **Technologies Used**: HTML, CSS, Bootstrap, JavaScript, jQuery
 
 ## Screenshots
-- **Home Screen**:
-![Alt text](assets/images/Screenshot-header.png)
+- **Home Screen**: (without colors as the time of this screenshot is 9PM)
+![Alt text](assets/images/screenshots/ScreenshotFreshPage.png)
 
-- **Color slots**:
-![Alt text](assets/images/Screenshot-work.png)
+- **Colored slots**:
+![Alt text](assets/images/screenshots/ScreenshotHomePage.png)
 
 - **Local Storage**:
-![Alt text](assets/images/Screenshot-contact.png)
+![Alt text](assets/images/screenshots/ScreenshotStorage.png)
 
 
 ## Contact Information
 
 - **Email**: gsgghotra@gmail.com
 - **LinkedIn**: [gsgghotra](https://www.linkedin.com/in/gsgghotra/)
-
-Feel free to reach out to me via email or connect with me on LinkedIn. I'm always open to new opportunities, collaborations, or just a friendly chat!
