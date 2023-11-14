@@ -77,7 +77,7 @@ function slotManager(hourId, slotColor){
 
     //Description Section
     let descriptionSection = $(`<textarea id="text-${eachHour.format('H')}"></textarea>`);
-    descriptionSection.addClass('col-10 '+ slotColor);
+    descriptionSection.addClass('col-xs-10 col-sm-8 col-md-8 col-lg-10 ' + slotColor);
     $(hourId).append(descriptionSection);
 
     //check if info saved in storage
