@@ -112,7 +112,9 @@ function slotManager(hourId, slotColor){
                 storedData.set(divId, $(textId).val());
 
                 //To use JSON stringify, create an array using entries method
-                let stringifyData = JSON.stringify(Array.from(storedData.entries()));                
+                let stringifyData = JSON.stringify(Array.from(storedData.entries()));
+                
+                //Storage - Date as key, stringify version of the map as value
                 localStorage.setItem(formattedDate, stringifyData);
             }   
         }
