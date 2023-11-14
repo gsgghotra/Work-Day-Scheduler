@@ -80,6 +80,12 @@ function slotManager(hourId, slotColor){
     descriptionSection.addClass('col-10 '+ slotColor);
     $(hourId).append(descriptionSection);
 
+    //check if info saved in storage
+    if (storedData.has(eachHour.format('H'))){
+        //Display in info inside textarea
+        descriptionSection.val(storedData.get(eachHour.format('H')));
+    }
+
     //Save Button
     let buttonSection = $(`<button></button>`);
     buttonSection.addClass('col saveBtn');
