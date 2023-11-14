@@ -71,7 +71,7 @@ function slotColoring(index){
 function slotManager(hourId, slotColor){
     //coloumn for time
     let timeSection = $('<div></div>');
-    timeSection.addClass('col hour text-end pt-3');
+    timeSection.addClass('col hour');
     timeSection.text(eachHour.format('hh A')); // Format into 12H format
     $(hourId).append(timeSection);
 
