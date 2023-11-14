@@ -2,7 +2,7 @@
 var timeNow = dayjs();
 var formattedDate = dayjs(timeNow).format('dddd, MMMM D');
 
-let locallyStored = localStorage.getItem("workDay");
+let locallyStored = localStorage.getItem(formattedDate);
 
 //variable for storage
 let storedData = new Map;
@@ -113,7 +113,7 @@ function slotManager(hourId, slotColor){
 
                 //To use JSON stringify, create an array using entries method
                 let stringifyData = JSON.stringify(Array.from(storedData.entries()));                
-                localStorage.setItem("workDay", stringifyData);
+                localStorage.setItem(formattedDate, stringifyData);
             }   
         }
     });
